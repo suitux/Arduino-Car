@@ -32,3 +32,4 @@ Example
 
 <img src="https://raw.githubusercontent.com/suitux/Arduino-Car/master/Example/Example.png" title="Example of a car" />
 
+<img src="https://raw.githubusercontent.com/suitux/Arduino-Car/master/Fritzing/Car.png" title="Fritzing drawing of my car" />
