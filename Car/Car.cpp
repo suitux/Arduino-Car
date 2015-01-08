@@ -95,7 +95,10 @@ void Car::setDebugMode(bool debug) {
 bool Car::checkFront() 
 {
   if(debugMode) Serial.println("Checking front...");
-  return motor->checkFront();
+  if(motor->checkMovement() == 1)
+    return true;
+  else
+    return false;
 };
 
 /**
@@ -105,7 +108,10 @@ bool Car::checkFront()
 bool Car::checkBack() 
 {
   if(debugMode) Serial.println("Checking back...");
-  return motor->checkBack();
+    if(motor->checkMovement() == -1)
+    return true;
+  else
+    return false;
 };
 
 /**

@@ -52,38 +52,32 @@ Motor::Motor(int frontMotor, int backMotor) {
 
 
 /**
- * checkFront
- * @return bool If the motor its going in front returns true, else returns false
+ * checkMovement
+ * Check if motor its moving and returns:
+ * -1: Its moving forward
+ * 0:  Its stopped
+ * 1:  Its moving front 
+ * @return Return the state of the motor
  */
-bool Motor::checkFront() 
+int Motor::checkMovement() 
 {
   if(frontMotorState && !backMotorState)   //If the front motor its running: 
-    return true;
-  else
-    return false;
-};
-
-/**
- * checkBack
- * @return bool If the motor its going in back returns true, else returns false
- */
-bool Motor::checkBack() 
-{
-  if(!frontMotorState && backMotorState) //If the back motor its running:
-    return true; 
+    return 1;
+  else if(!frontMotorState && backMotorState)
+    return -1;
   else 
-    return false;
-};
+    return 0;
+}
 
 /**
  * itsMoving
  * @return True: If the motor its on movement. False if the motor its stopped
  */
 bool Motor::itsMoving() {
-  if(checkFront() || checkBack())     //If front OR back motor are running: 
-    return true;
-  else
+  if(checkMovement() == 0)     //If front OR back motor are running: 
     return false;
+  else
+    return true;
 }
 
 /*  __  _______ _    __________  __________   ________   __  _________________  ______  ____  _____

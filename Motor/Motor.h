@@ -23,8 +23,7 @@ class Motor
     
     //Methods
       //Check methods
-    bool checkFront(); 
-    bool checkBack();
+    int checkMovement();
     void stop();
     bool itsMoving();
 
